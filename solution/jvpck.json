@@ -1,0 +1,89 @@
+{
+  "dependencies": [
+    {
+      "name": "tomcat",
+      "path": "./dependencies/resources/apache-tomcat-10.0.13"
+    },
+    {
+      "name": "commons-io",
+      "path": "./dependencies/libraries/commons-io-2.6.jar"
+    },
+    {
+      "name": "jackson-annotations",
+      "path": "./dependencies/libraries/jackson-annotations-2.13.0.jar"
+    },
+    {
+      "name": "jackson-core",
+      "path": "./dependencies/libraries/jackson-core-2.13.0.jar"
+    },
+    {
+      "name": "jackson-databind",
+      "path": "./dependencies/libraries/jackson-databind-2.13.0.jar"
+    },
+    {
+      "name": "jakarta.servlet-api",
+      "path": "./dependencies/libraries/jakarta.servlet-api-5.0.0.jar"
+    },
+    {
+      "name": "sqlite-jdbc",
+      "path": "./dependencies/libraries/sqlite-jdbc-3.36.0.3.jar"
+    },
+    {
+      "name": "javax.mail-api",
+      "path": "./dependencies/libraries/javax.mail-api-1.6.2.jar"
+    }
+  ],
+  "compilation": {
+    "sourcecode": "./sourcecode",
+    "classpath": [
+      "commons-io",
+      "jackson-annotations",
+      "jackson-core",
+      "jackson-databind",
+      "jakarta.servlet-api",
+      "sqlite-jdbc",
+      "javax.mail-api"
+    ],
+    "bytecode": "./bytecode"
+  },
+  "beforeCompilation": [
+    {
+      "actionName": "folder.create",
+      "data": { "path": "./path/to/new/folder" }
+    },
+    {
+      "actionName": "folder.delete",
+      "data": { "path": "./path/to/folder" }
+    },
+    {
+      "actionName": "folder.copy",
+      "data": {
+        "from": "./path/to/source/folder",
+        "to": "./path/to/destination/folder"
+      }
+    },
+    {
+      "actionName": "dependency.copy",
+      "data": {
+        "dependencyName": "tomcat",
+        "path": "./path/to/destination/folder"
+      }
+    },
+    {
+      "actionName": "dependency.unarchive",
+      "data": {
+        "dependencyName": "commons-io",
+        "path": "./path/to/destination/folder"
+      }
+    }
+  ],
+  "afterCompilation": [
+
+  ],
+  "cmd": [
+    {
+      "name": "check",
+      "exec": "echo \"Hello\""
+    }
+  ]
+}
